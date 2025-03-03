@@ -1,8 +1,8 @@
-type HeaderPropsType = {
+type BodyPropsType = {
     title: string;
 }
 
-export const Header = (props: HeaderPropsType) => {
+export const Body = (props: BodyPropsType) => {
     return (
         <div>{props.title}</div>
     );
