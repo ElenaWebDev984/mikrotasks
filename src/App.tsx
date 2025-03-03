@@ -7,7 +7,7 @@ function App() {
     return (
         <>
             <NewComponent students={students}/>
-            <NewComponentTopCars topCars={topCars}/>
+            <NewComponentTopCars topCars={topCars} />
         </>
     )
 }
