@@ -25,7 +25,6 @@ type StudentType = {
 
 export const NewComponent = (props: NewComponentPropsType) => {
 
-
     return (
         <ul>
             {props.students.map((objectFromStudentArray) => {
