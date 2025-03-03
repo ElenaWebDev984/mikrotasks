@@ -1,4 +1,4 @@
-import * as React from "react";
+
 
 export const topCars = [
     {manufacturer: 'BMW', model: 'm5cs'},
@@ -12,41 +12,30 @@ type NewComponentTopCarsPropsType = {
 
 
 type TopCarsType = {
-    key: keyof TopCarsType
-    index: React.Key
     manufacturer: string
     model: string
-
 }
 
 
 export const NewComponentTopCars = (props: NewComponentTopCarsPropsType) => {
     return (
         <table>
-            {props.topCars.map((objectFromTopCarsArray) => {
+            <thead>
+            <tr>
+                <th>Manufacturer</th>
+                <th>Model</th>
+            </tr>
+            </thead>
+            <tbody>
+            {props.topCars.map((objectFromTopCarsArray, index) => {
                 return (
-                    <tr key={objectFromTopCarsArray.index}>
-                        <th>{objectFromTopCarsArray.key}</th>
+                    <tr key={index}>
                         <td>{objectFromTopCarsArray.manufacturer}</td>
                         <td>{objectFromTopCarsArray.model}</td>
                     </tr>
                 )
             })}
+            </tbody>
         </table>
     );
 };
-
-// <table>
-//     <tr>
-//         <th>Month</th>
-//         <th>Savings</th>
-//     </tr>
-//     <tr>
-//         <td>January</td>
-//         <td>$100</td>
-//     </tr>
-//     <tr>
-//         <td>February</td>
-//         <td>$80</td>
-//     </tr>
-// </table>
