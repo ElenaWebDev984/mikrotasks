@@ -1,52 +1,53 @@
-import * as React from "react";
-
 export const topCars = [
     {manufacturer: 'BMW', model: 'm5cs'},
     {manufacturer: 'Mercedes', model: 'e63s'},
     {manufacturer: 'Audi', model: 'rs6'},
-]
+];
+
 
 type NewComponentTopCarsPropsType = {
-    topCars: TopCarsType[]
-}
+    topCars: TopCarsType[];
+};
 
 
 type TopCarsType = {
-    key: keyof TopCarsType
-    index: React.Key
-    manufacturer: string
-    model: string
+    manufacturer: string;
+    model: string;
+};
 
-}
+
+// Функция для преобразования ключей в читаемый формат
+const formatHeader = (header: string) => {
+    return header.charAt(0).toUpperCase() + header.slice(1);
+};
 
 
 export const NewComponentTopCars = (props: NewComponentTopCarsPropsType) => {
+
+    const headers = props.topCars.length > 0
+        ? (Object.keys(props.topCars[0]) as (keyof TopCarsType)[])
+        : [];
+
     return (
         <table>
-            {props.topCars.map((objectFromTopCarsArray) => {
-                return (
-                    <tr key={objectFromTopCarsArray.index}>
-                        <th>{objectFromTopCarsArray.key}</th>
-                        <td>{objectFromTopCarsArray.manufacturer}</td>
-                        <td>{objectFromTopCarsArray.model}</td>
-                    </tr>
-                )
-            })}
+            <thead>
+            <tr>
+                {headers.map((header, index) => (
+                    <th key={index}>{formatHeader(header)}</th>
+                ))}
+            </tr>
+            </thead>
+            <tbody>
+            {props.topCars.map((objectFromTopCarsArray, index) => (
+                <tr key={index}>
+                    {headers.map((header) => (
+                        <td key={header}>
+                            {objectFromTopCarsArray[header]}
+                        </td>
+                    ))}
+                </tr>
+            ))}
+            </tbody>
         </table>
     );
 };
-
-// <table>
-//     <tr>
-//         <th>Month</th>
-//         <th>Savings</th>
-//     </tr>
-//     <tr>
-//         <td>January</td>
-//         <td>$100</td>
-//     </tr>
-//     <tr>
-//         <td>February</td>
-//         <td>$80</td>
-//     </tr>
-// </table>
