@@ -1,18 +1,18 @@
 import './App.css'
-import {NewComponent, students} from "./site/NewComponent.tsx";
-import {NewComponentTopCars, topCars} from "./site/NewComponentTopCars.tsx";
-import {cities, Cities} from "./site/Cities.tsx";
-import {people, People} from "./site/People.tsx";
+
 
 
 
 function App() {
+    const myFirstSubscriber = () => {
+        console.log("Hello! I'm Vasya!")
+    }
+
+
     return (
         <>
-            <NewComponent students={students}/>
-            <NewComponentTopCars topCars={topCars} />
-            <Cities cities={cities} />
-            <People people={people} />
+            <button onClick={()=> {console.log('Hello!')}}>MyYouTubeChanel-1</button>
+            <button onClick={myFirstSubscriber}>MyYouTubeChanel-2</button>
         </>
     )
 }
