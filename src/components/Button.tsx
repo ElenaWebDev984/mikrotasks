@@ -1,9 +1,14 @@
 type ButtonType = {
     name: string
+    callBack: () => void
 }
 
-export const Button = ({name}: ButtonType) => {
+export const Button = ({name, callBack}: ButtonType) => {
+    const onClickHandler = () => {
+        callBack()
+    }
+
     return (
-        <button>{name}</button>
+        <button onClick={onClickHandler}>{name}</button>
     )
 }
