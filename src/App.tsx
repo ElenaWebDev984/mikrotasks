@@ -2,7 +2,7 @@ import './App.css'
 import {useState} from "react";
 import {NewComponentForFilterTask} from "./NewComponentForFilterTask.tsx";
 
-type filterType = 'all' | 'ruble' | 'dollar';
+export type FilterType = 'all' | 'ruble' | 'dollar';
 
 
 function App() {
@@ -29,30 +29,15 @@ function App() {
     }
 
 
-    const onClickFilterHandler = (nameButton: filterType) => {
+    const onClickFilterHandler = (nameButton: FilterType) => {
         setFilter(nameButton);
     }
 
     return (
        <>
-           <NewComponentForFilterTask/>
-
-          {/* <ul>*/}
-          {/*     {currentMoney.map((objForMoneyArr: {banknote: string, nominal: number, number: string}, index) => {*/}
-          {/*         return (*/}
-          {/*             <li key={index}>*/}
-          {/*                 <span>{objForMoneyArr.banknote}</span>*/}
-          {/*                 <span>{objForMoneyArr.nominal}</span>*/}
-          {/*                 <span>{objForMoneyArr.number}</span>*/}
-          {/*             </li>*/}
-          {/*         )*/}
-          {/*     })}*/}
-          {/* </ul>*/}
-          {/*<div style={{marginLeft: '35px'}}>*/}
-          {/*    <button onClick={ () => onClickFilterHandler('all')}>all</button>*/}
-          {/*    <button onClick={ () => onClickFilterHandler('ruble')}>rubles</button>*/}
-          {/*    <button onClick={ () => onClickFilterHandler('dollar')}>dollars</button>*/}
-          {/*</div>*/}
+           <NewComponentForFilterTask
+               currentMoney={currentMoney}
+               onClickFilterHandler={onClickFilterHandler}/>
        </>
     )
 }

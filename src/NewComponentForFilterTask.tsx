@@ -1,7 +1,17 @@
+import {FilterType} from "./App.tsx";
 
+type MoneyType ={
+    banknote: string
+    nominal: number
+    number: string
+}
 
-export const NewComponentForFilterTask = () => {
-    let currentMoney;
+type NewComponentType = {
+    currentMoney: MoneyType[]
+    onClickFilterHandler: (nameButton: FilterType) => void
+}
+
+export const NewComponentForFilterTask = ({currentMoney, onClickFilterHandler}: NewComponentType) => {
     return (
         <>
             <ul>
