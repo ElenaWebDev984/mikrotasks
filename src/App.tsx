@@ -19,17 +19,24 @@ function App() {
     const currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === 'RUBLES')
 
     return (
-        <ul>
-            {currentMoney.map((objForMoneyArr: {banknote: string, nominal: number, number: string}, index) => {
-                return (
-                    <li key={index}>
-                        <span>{objForMoneyArr.banknote}</span>
-                        <span>{objForMoneyArr.nominal}</span>
-                        <span>{objForMoneyArr.number}</span>
-                    </li>
-                )
-            })}
-        </ul>
+       <>
+           <ul>
+               {currentMoney.map((objForMoneyArr: {banknote: string, nominal: number, number: string}, index) => {
+                   return (
+                       <li key={index}>
+                           <span>{objForMoneyArr.banknote}</span>
+                           <span>{objForMoneyArr.nominal}</span>
+                           <span>{objForMoneyArr.number}</span>
+                       </li>
+                   )
+               })}
+           </ul>
+          <div style={{marginLeft: '35px'}}>
+              <button>all</button>
+              <button>ruble</button>
+              <button>dollar</button>
+          </div>
+       </>
     )
 }
 
