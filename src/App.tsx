@@ -16,7 +16,21 @@ function App() {
         { banknote: 'RUBLES', nominal: 50, number: ' v1234567890' },
     ])
 
-    const currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === 'RUBLES')
+    const [filter, setFilter] = useState('all')
+
+
+    let currentMoney = money;
+    if (filter === 'ruble') {
+        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === 'RUBLES')
+    }
+    if (filter === 'dollar') {
+        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === 'Dollars')
+    }
+
+
+    const onClickFilterHandler = (nameButton: string) => {
+        setFilter(nameButton);
+    }
 
     return (
        <>
@@ -32,9 +46,9 @@ function App() {
                })}
            </ul>
           <div style={{marginLeft: '35px'}}>
-              <button>all</button>
-              <button>ruble</button>
-              <button>dollar</button>
+              <button onClick={ () => onClickFilterHandler('all')}>all</button>
+              <button onClick={ () => onClickFilterHandler('ruble')}>ruble</button>
+              <button onClick={ () => onClickFilterHandler('dollar')}>dollar</button>
           </div>
        </>
     )
