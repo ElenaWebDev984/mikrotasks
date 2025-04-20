@@ -8,19 +8,21 @@ function App() {
     const [money, setMoney] = useState([
         { banknote: 'Dollars', nominal: 100, number: ' a1234567890' },
         { banknote: 'Dollars', nominal: 50, number: ' z1234567890' },
-        { banknote: 'RUBLS', nominal: 100, number: ' w1234567890' },
+        { banknote: 'RUBLES', nominal: 100, number: ' w1234567890' },
         { banknote: 'Dollars', nominal: 100, number: ' e1234567890' },
         { banknote: 'Dollars', nominal: 50, number: ' c1234567890' },
-        { banknote: 'RUBLS', nominal: 100, number: ' r1234567890' },
+        { banknote: 'RUBLES', nominal: 100, number: ' r1234567890' },
         { banknote: 'Dollars', nominal: 50, number: ' x1234567890' },
-        { banknote: 'RUBLS', nominal: 50, number: ' v1234567890' },
+        { banknote: 'RUBLES', nominal: 50, number: ' v1234567890' },
     ])
+
+    const currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === 'RUBLES')
 
     return (
         <ul>
-            {money.map((objForMoneyArr: {banknote: string, nominal: number, number: string}) => {
+            {currentMoney.map((objForMoneyArr: {banknote: string, nominal: number, number: string}, index) => {
                 return (
-                    <li>
+                    <li key={index}>
                         <span>{objForMoneyArr.banknote}</span>
                         <span>{objForMoneyArr.nominal}</span>
                         <span>{objForMoneyArr.number}</span>
