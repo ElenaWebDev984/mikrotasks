@@ -5,26 +5,29 @@ import {useState} from "react";
 
 
 function App() {
-    // let a = 1
-    let [a, setA] = useState(1)
-    // TODO a - это состояние (initial state/ local state), может быть чем угодно: [], {} и т.д.
-    //  setA - это функция в которой находится состояние
-
-    const onClickHandler = () => {
-        setA(++a);
-        console.log(a)
-    }
-
-    const onClickHandler2 = () => {
-        setA(0);
-    }
+    const [money, setMoney] = useState([
+        { banknote: 'Dollars', nominal: 100, number: ' a1234567890' },
+        { banknote: 'Dollars', nominal: 50, number: ' z1234567890' },
+        { banknote: 'RUBLS', nominal: 100, number: ' w1234567890' },
+        { banknote: 'Dollars', nominal: 100, number: ' e1234567890' },
+        { banknote: 'Dollars', nominal: 50, number: ' c1234567890' },
+        { banknote: 'RUBLS', nominal: 100, number: ' r1234567890' },
+        { banknote: 'Dollars', nominal: 50, number: ' x1234567890' },
+        { banknote: 'RUBLS', nominal: 50, number: ' v1234567890' },
+    ])
 
     return (
-        <div className="App">
-            <h1>{a}</h1>
-            <button onClick={onClickHandler}>number</button>
-            <button onClick={onClickHandler2}>0</button>
-        </div>
+        <ul>
+            {money.map((objForMoneyArr: {banknote: string, nominal: number, number: string}) => {
+                return (
+                    <li>
+                        <span>{objForMoneyArr.banknote}</span>
+                        <span>{objForMoneyArr.nominal}</span>
+                        <span>{objForMoneyArr.number}</span>
+                    </li>
+                )
+            })}
+        </ul>
     )
 }
 
